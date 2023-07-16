@@ -1,0 +1,76 @@
+{
+  "name": "jest-results",
+  "version": "1.0.0",
+  "description": "Capture jest test output and collect it in individual log files",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "clear-build-folder": "rm -rf ./build",
+    "transpile": "tsc",
+    "fix-paths": "tsc-alias",
+    "move-entry-to-root": "mv ./build/jsdom* ./build/node* .",
+    "fix-paths-for-root-files": "find . -type f -regex \".*.js$\" -maxdepth 1 -exec sed -i '' -e 's/require(\".\\//require(\".\\/build\\//g' {} +",
+    "make-cli-executable": "chmod +x ./build/cli.js",
+    "build": "yarn clear-build-folder && yarn transpile && yarn fix-paths && yarn move-entry-to-root && yarn fix-paths-for-root-files && yarn make-cli-executable",
+    "dev": "yarn nodemon",
+    "test": "yarn build && jest --runInBand=false",
+    "testWatch": "yarn build && jest --watch",
+    "testOnly1DescribeBlock": "yarn build && jest --runInBand=false --testNamePattern \"Example Tests 01\"",
+    "deleteLogs": "find . -type f -name '*.test.log' -not -path **/node_modules/** -delete"
+  },
+  "bin": {
+    "jest-results": "build/cli.js"
+  },
+  "keywords": [
+    "jest",
+    "unit",
+    "tests",
+    "capture console",
+    "log",
+    "info",
+    "warn",
+    "debug",
+    "error"
+  ],
+  "files": [
+    "build",
+    "jsdom.d.ts",
+    "jsdom.js",
+    "node.d.ts",
+    "node.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maks-io/jest-result.git"
+  },
+  "author": "Markus Kurzmann <markus@kurzmann.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maks-io/jest-result/issues"
+  },
+  "homepage": "https://github.com/maks-io/jest-result#readme",
+  "devDependencies": {
+    "@types/jest": "29.5.3",
+    "@types/node": "^20.4.2",
+    "jest": "^29.6.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "tsc-alias": "^1.8.7",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "async-mutex": "^0.4.0",
+    "glob": "^10.3.3",
+    "identify-monorepo-root": "^1.0.5",
+    "jest-environment-jsdom": "^29.6.1",
+    "jest-environment-node": "^29.6.1"
+  },
+  "peerDependencies": {
+    "@types/jest": "29.0.3",
+    "jest": "^29.5.0"
+  }
+}

@@ -1,0 +1,5 @@
+!build
+!(./jsdom.d.ts)
+!./jsdom.js
+!./node.d.ts
+!./node.js
