@@ -1,6 +1,6 @@
 {
   "name": "jest-results",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Capture jest test output and collect it in individual log files",
   "main": "build/index.js",
   "types": "build/index.d.ts",
