@@ -1,6 +1,6 @@
 {
   "name": "jest-results",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Capture jest test output and collect it in individual log files",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -42,14 +42,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maks-io/jest-result.git"
+    "url": "git+https://github.com/maks-io/jest-results.git"
   },
   "author": "Markus Kurzmann <markus@kurzmann.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maks-io/jest-result/issues"
+    "url": "https://github.com/maks-io/jest-results/issues"
   },
-  "homepage": "https://github.com/maks-io/jest-result#readme",
+  "homepage": "https://github.com/maks-io/jest-results#readme",
   "devDependencies": {
     "@types/jest": "29.5.3",
     "@types/node": "^20.4.2",

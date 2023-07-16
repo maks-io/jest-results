@@ -6,7 +6,6 @@ export const tryToGetPreviousTestResult = (that): TestResult => {
   const keyForStats = getUniqueKeyPerWorkerForStats(that.workerId);
   const stats = that.global[keyForStats];
   const fileNameUnique = getLogFileNameWithoutLineAndResult(that);
-  console.log("COMPARE", fileNameUnique)
   if (
     stats.success.uniqueTestIdentifiersFromPreviousRun
       .map((r) => r.uniqueId)

@@ -18,11 +18,6 @@ export const cleanUpFiles = (that) => {
       !recentlyAddedFiles.includes(`${absolutePath}${file}`) &&
       file.includes(fileName)
     ) {
-      console.log("DEBUGB DELETE", {
-        file,
-        s: `${absolutePath}${file}`,
-        fileName,
-      });
       fs.unlinkSync(`${absolutePath}${file}`);
     }
   });
